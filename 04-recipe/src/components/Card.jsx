@@ -1,5 +1,4 @@
 function Card( { recipe } ) {
-
     return (
         <div className="card">
             <img src={ recipe.image } alt="" />
