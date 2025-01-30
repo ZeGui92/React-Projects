@@ -9,14 +9,16 @@ function Card( { recipe } ) {
 
     return (
         <div className="card" onClick={ navigateToRecipePage }>
-            <img src={ recipe.image } alt="" />
+            <img src={ recipe.thumbnail_url } alt="" />
             <div className="card-content">
                 <h3>{ recipe.name }</h3>
                 <div className="card-info">
                     <div className="tag">
-                        <p>{ recipe.tag }</p>
+                        { /*Sometimes there is no tags */ }
+                        { recipe.topics.length > 0 ? <p>{ recipe.topics[ 0 ].name }</p> : null }
                     </div>
-                    <p className="time-text">{ recipe.minutes } mins</p>
+                    { /*Sometimes total_time_minutes is null */ }
+                    { recipe.total_time_minutes ? <p className="time-text">{ recipe.total_time_minutes } mins</p> : null }
                 </div>
             </div>
         </div>
