@@ -5,7 +5,6 @@
 }
 
 .App {
-  background-color: rgb(240,248,246);
   margin: 0 auto;
   min-height: 100vh;
 }
@@ -22,13 +21,13 @@
 
 
 .header-title {
-  color: rgb(56,77,68);
+  color: rgb(56, 77, 68);
   font-weight: 800;
   font-size: 60px
 }
 
 .header-title span {
-  color: rgb(228,199,134);
+  color: rgb(228, 199, 134);
   text-transform: uppercase;
 }
 
@@ -142,7 +141,7 @@
 }
 
 .not-found-header {
-  color: rgb(56,77,68);
+  color: rgb(56, 77, 68);
   padding: 10px 0;
   font-size: 50px;
 }
@@ -155,8 +154,9 @@
   width: 600px;
   margin: 0 auto;
   text-align: center;
-  
+
 }
+
 .recipe-header {
   color: grey
 }
