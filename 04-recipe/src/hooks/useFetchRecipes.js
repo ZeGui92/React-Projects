@@ -1,28 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import myKey from "../config"
 
 const useFetchRecipes = () => {
-    const options = {
-        method: 'GET',
-        url: 'https://tasty.p.rapidapi.com/recipes/list',
-        params: {
-            from: '0',
-            size: '20'
-        },
-        headers: {
-            'x-rapidapi-key': myKey,
-            'x-rapidapi-host': 'tasty.p.rapidapi.com'
-        }
-    };
-
     const [ recipes, setRecepies ] = useState( null );
     const [ loading, setLoading ] = useState( false );
     const [ error, setError ] = useState( null );
 
-    useEffect( () => { fetchRecipes() }, [] );
+    const fetchRecipes = async ( searchTerms ) => {
+        let options = {
+            method: 'GET',
+            url: 'https://tasty.p.rapidapi.com/recipes/list',
+            params: {
+                from: '0',
+                size: '20'
+            },
+            headers: {
+                'x-rapidapi-key': myKey,
+                'x-rapidapi-host': 'tasty.p.rapidapi.com'
+            }
+        };
 
-    const fetchRecipes = async () => {
+        options.params.q = searchTerms; //if the search term is null, than the API will return all the data
+
         setLoading( true );
         setRecepies( null );
         setError( null );
@@ -37,7 +37,7 @@ const useFetchRecipes = () => {
         }
     }
 
-    return [ recipes, loading, error ]; //we are returning an array just to keep the pattern of hooks
+    return [ fetchRecipes, { recipes, loading, error } ];
 }
 
 export default useFetchRecipes;
