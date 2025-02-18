@@ -11,14 +11,8 @@ const useFetchRecipes = () => {
         let options = {
             method: 'GET',
             url: 'https://tasty.p.rapidapi.com/recipes/list',
-            params: {
-                from: '0',
-                size: '20'
-            },
-            headers: {
-                'x-rapidapi-key': myKey,
-                'x-rapidapi-host': 'tasty.p.rapidapi.com'
-            }
+            params: { from: '0', size: '20' },
+            headers: { 'x-rapidapi-key': myKey, 'x-rapidapi-host': 'tasty.p.rapidapi.com' }
         };
 
         options.params.q = searchTerms; //if the search term is null, than the API will return all the data
