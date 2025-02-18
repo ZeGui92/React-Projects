@@ -1,4 +1,4 @@
-export default function RecipeNutritionalFact( { fact, children } ) {
+function RecipeNutritionalFact( { fact, children } ) {
     return (
         <div className="recipe-fact-container">
             { children }
@@ -7,3 +7,5 @@ export default function RecipeNutritionalFact( { fact, children } ) {
         </div>
     );
 }
+
+export default RecipeNutritionalFact;

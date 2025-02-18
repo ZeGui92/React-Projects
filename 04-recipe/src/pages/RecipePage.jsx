@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import useFetchRecipe from "../hooks/useFetchRecipe";
 import RecipeHeader from "../components/RecipeHeader";
 import Loading from "../components/Loading";
+import RecipeInfo from "../components/RecipeInfo";
 
 export default function RecipePage() {
     const recipeId = useParams().id;
@@ -17,7 +18,8 @@ export default function RecipePage() {
     } else {
         return (
             <>
-                <RecipeHeader nutritionalFacts={ recipe.nutrition } />
+                <RecipeHeader name={ recipe.name } nutritionalFacts={ recipe.nutrition } />
+                <RecipeInfo instructions={ recipe.instructions } image={ recipe.thumbnail_url } />
             </>
         );
     }
